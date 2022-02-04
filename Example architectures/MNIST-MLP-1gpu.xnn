@@ -1,0 +1,84 @@
+**************************************************************************************************************
+Architecture for the simple MLP for training on MNIST dataset on one GPU.
+**************************************************************************************************************
+
+------------------------------------------|
+Input layer
+------------------------------------------|
+layer: input
+dataType: text
+inputDataWidth: 784
+normalizeInputs: yes
+inputMeans: 0
+inputStDevs: 255
+
+------------------------------------------|
+Standard layer 1
+------------------------------------------|
+layer: standard
+numNeurons: 128
+weightsInitialization: normal
+weightsStdDev: 0.05
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.1
+weightsLRStep: 0.25
+weightsLRFactor: 0.15874
+biasesInitialValue: 1
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.1
+biasesLRStep: 0.25
+biasesLRFactor: 0.15874
+activationType: ReLu
+
+------------------------------------------|
+Standard layer 2
+------------------------------------------|
+layer: standard
+numNeurons: 64
+weightsInitialization: normal
+weightsStdDev: 0.05
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.1
+weightsLRStep: 0.25
+weightsLRFactor: 0.15874
+biasesInitialValue: 1
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.1
+biasesLRStep: 0.25
+biasesLRFactor: 0.15874
+activationType: ReLu
+
+------------------------------------------|
+Standard layer 3
+------------------------------------------|
+layer: standard
+numNeurons: 10
+weightsInitialization: normal
+weightsStdDev: 0.05
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.1
+weightsLRStep: 0.25
+weightsLRFactor: 0.15874
+biasesInitialValue: 1
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.1
+biasesLRStep: 0.25
+biasesLRFactor: 0.15874
+activationType: Linear
+
+------------------------------------------|
+Softmax layer
+------------------------------------------|
+layer: softmax
+
+------------------------------------------|
+Output layer
+------------------------------------------|
+layer: output
+lossFunction: CrossEntropy

@@ -1,0 +1,14 @@
+# Build files
+target/
+temp/
+
+# Visual Studio
+.vs/
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mac
+.DS_Store

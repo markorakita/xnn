@@ -1,0 +1,481 @@
+**************************************************************************************************************
+Architecture for the VGG16 CNN for training on one GPU.
+(from this paper: https://arxiv.org/abs/1409.1556)
+**************************************************************************************************************
+
+------------------------------------------|
+Input layer
+------------------------------------------|
+layer: input
+dataType: image
+numChannels: 3
+originalDataWidth: 256
+originalDataHeight: 256
+inputDataWidth: 224
+inputDataHeight: 224
+doRandomFlips: yes
+normalizeInputs: yes
+inputMeans: 123,116,103
+inputStDevs: 1,1,1
+// In original paper testing is done differently, in a very specific custom way which is not supported by XNN framework.
+numTestPatches: 5
+testOnFlips: yes
+
+------------------------------------------|
+Convolutional layer 1_1
+------------------------------------------|
+layer: convolutional
+numFilters: 64
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 1_2
+------------------------------------------|
+layer: convolutional
+numFilters: 64
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Max Pool layer 1
+------------------------------------------|
+layer: maxpool
+filterWidth: 2
+filterHeight: 2
+paddingX: 0
+paddingY: 0
+stride: 2
+
+------------------------------------------|
+Convolutional layer 2_1
+------------------------------------------|
+layer: convolutional
+numFilters: 128
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 2_2
+------------------------------------------|
+layer: convolutional
+numFilters: 128
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Max Pool layer 2
+------------------------------------------|
+layer: maxpool
+filterWidth: 2
+filterHeight: 2
+paddingX: 0
+paddingY: 0
+stride: 2
+
+------------------------------------------|
+Convolutional layer 3_1
+------------------------------------------|
+layer: convolutional
+numFilters: 256
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 3_2
+------------------------------------------|
+layer: convolutional
+numFilters: 256
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 3_3
+------------------------------------------|
+layer: convolutional
+numFilters: 256
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Max Pool layer 3
+------------------------------------------|
+layer: maxpool
+filterWidth: 2
+filterHeight: 2
+paddingX: 0
+paddingY: 0
+stride: 2
+
+------------------------------------------|
+Convolutional layer 4_1
+------------------------------------------|
+layer: convolutional
+numFilters: 512
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 4_2
+------------------------------------------|
+layer: convolutional
+numFilters: 512
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 4_3
+------------------------------------------|
+layer: convolutional
+numFilters: 512
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Max Pool layer 4
+------------------------------------------|
+layer: maxpool
+filterWidth: 2
+filterHeight: 2
+paddingX: 0
+paddingY: 0
+stride: 2
+
+------------------------------------------|
+Convolutional layer 5_1
+------------------------------------------|
+layer: convolutional
+numFilters: 512
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 5_2
+------------------------------------------|
+layer: convolutional
+numFilters: 512
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Convolutional layer 5_3
+------------------------------------------|
+layer: convolutional
+numFilters: 512
+filterWidth: 3
+filterHeight: 3
+paddingX: 1
+paddingY: 1
+stride: 1
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Max Pool layer 5
+------------------------------------------|
+layer: maxpool
+filterWidth: 2
+filterHeight: 2
+paddingX: 0
+paddingY: 0
+stride: 2
+
+------------------------------------------|
+Standard layer 1
+------------------------------------------|
+layer: standard
+numNeurons: 4096
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Dropout layer 1
+------------------------------------------|
+layer: dropout
+dropProbability: 0.5
+
+------------------------------------------|
+Standard layer 2
+------------------------------------------|
+layer: standard
+numNeurons: 4096
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: ReLu
+
+------------------------------------------|
+Dropout layer 2
+------------------------------------------|
+layer: dropout
+dropProbability: 0.5
+
+------------------------------------------|
+Standard layer 3
+------------------------------------------|
+layer: standard
+numNeurons: 1000
+weightsInitialization: normal
+weightsStdDev: 0.01
+weightsMomentum: 0.9
+weightsDecay: 0.0005
+weightsStartingLR: 0.01
+weightsLRStep: 0.25
+weightsLRFactor: 0.1
+biasesInitialValue: 0
+biasesMomentum: 0.9
+biasesDecay: 0
+biasesStartingLR: 0.01
+biasesLRStep: 0.25
+biasesLRFactor: 0.1
+activationType: Linear
+
+------------------------------------------|
+Softmax layer
+------------------------------------------|
+layer: softmax
+
+------------------------------------------|
+Output layer
+------------------------------------------|
+layer: output
+lossFunction: CrossEntropy
+numGuesses: 5
