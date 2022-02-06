@@ -198,7 +198,7 @@ void MockSoftMaxLayer::CrossEntropyBackwardProp(uint* dataLabels)
 		for (uint dataIndex = 0; dataIndex < m_inputDataCount; ++dataIndex)
 		{
 			uint activationsOffset = activationIndex * m_inputDataCount + dataIndex;
-			m_inputGradientsBuffer[activationsOffset] = (dataLabels[dataIndex] == activationIndex ? 1.f : 0.f) - m_activationDataBuffer[activationsOffset];
+			m_inputGradientsBuffer[activationsOffset] = m_activationDataBuffer[activationsOffset] - (dataLabels[dataIndex] == activationIndex ? 1.f : 0.f);
 		}
 	}
 }

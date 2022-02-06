@@ -302,7 +302,7 @@ __global__ void CalculateCrossEntropyInputGradients(float* activations, uint* da
 
 	if (c_dataIndex < dataCount && c_activationIndex < numActivations)
 	{
-		inputGradients[c_activationsOffset] = (dataLabels[c_dataIndex] == c_activationIndex ? 1.f : 0.f) - activations[c_activationsOffset];
+		inputGradients[c_activationsOffset] = activations[c_activationsOffset] - (dataLabels[c_dataIndex] == c_activationIndex ? 1.f : 0.f);
 	}
 }
 

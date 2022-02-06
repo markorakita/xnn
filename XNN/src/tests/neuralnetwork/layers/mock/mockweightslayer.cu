@@ -115,8 +115,8 @@ void MockWeightsLayer::ApplyParamatersUpdate(float* paramsBuffer, float* gradien
     const float learningRate = startingLearningRate * powf(learningRateUpdateFactor, updateProgressSteps);
     for (uint i = 0; i < numElements; ++i)
     {
-        updatesBuffer[i] = updateMomentum * updatesBuffer[i] + learningRate * (gradientsBuffer[i] - updateDecay * paramsBuffer[i]);
-        paramsBuffer[i] += updatesBuffer[i];
+        updatesBuffer[i] = updateMomentum * updatesBuffer[i] + learningRate * (gradientsBuffer[i] + updateDecay * paramsBuffer[i]);
+        paramsBuffer[i] -= updatesBuffer[i];
     }
 }
 

@@ -238,9 +238,9 @@ __global__ void ApplyParamatersUpdate(float* paramsBuffer, float* gradientsBuffe
 {
 	for (uint elementIndex = blockIdx.x * blockDim.x + threadIdx.x; elementIndex < numElements; elementIndex += gridDim.x * blockDim.x)
 	{
-		updatesBuffer[elementIndex] = updateMomentum * updatesBuffer[elementIndex] + learningRate * (gradientsBuffer[elementIndex] -
+		updatesBuffer[elementIndex] = updateMomentum * updatesBuffer[elementIndex] + learningRate * (gradientsBuffer[elementIndex] +
 			updateDecay * paramsBuffer[elementIndex]);
-		paramsBuffer[elementIndex] += updatesBuffer[elementIndex];
+		paramsBuffer[elementIndex] -= updatesBuffer[elementIndex];
 	}
 }
 
